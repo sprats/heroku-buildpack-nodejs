@@ -93,13 +93,13 @@ testBuildWithUserCacheDirectoriesCamel() {
   compile "cache-directories-camel" $cache
   assertCaptured "- non/existent (nothing to cache)"
   assertEquals "1" "$(ls -1 $cache/node/server | grep node_modules | wc -l | tr -d ' ')"
-  assertEquals "1" "$(ls -1 $cache/node/client | grep node_modules | wc -l | tr -d ' ')"
+  assertEquals "1" "$(ls -1 $cache/node/frontend | grep node_modules | wc -l | tr -d ' ')"
   assertCapturedSuccess
 
   compile "cache-directories-camel" $cache
   assertCaptured "Loading 3 from cacheDirectories"
   assertCaptured "- server/node_modules"
-  assertCaptured "- client/node_modules"
+  assertCaptured "- frontend/node_modules"
   assertCaptured "- non/existent (not cached - skipping)"
   assertCapturedSuccess
 }
